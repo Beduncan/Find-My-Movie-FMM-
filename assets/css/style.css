@@ -1,17 +1,25 @@
-body{
-	background-image: url("../images/background.jpg");
-    background-size: cover; 
-    background-size: 100% 100%;
+*{
+	color: #f8f8ff;
 }
-.piccontainer{
-	margin-top: 50px;
-	height: 725px;
-	background-image: url("../images/popcorn2.jpg");
+body{
+	background-image: url("../images/movie2.jpg");
     background-size: cover; 
     background-size: 100% 100%;
 }
 .header{
-	background-color: #708090;
+	font-size: 70px; 
+	padding: 40px 0 40px 0;
+	background-image: url("../images/movies.jpg");
+	background-size: cover; 
+    background-size: 100% 100% ;
+}
+.piccontainer{
+	font-family: 'Indie Flower', cursive;
+	background-image: url("../images/Spiderman.jpg");
+    background-size: cover; 
+	min-height:700px;
+	max-height: auto;
+	padding:200px 0 50px 0;
 }
 .fmm{
 	font-weight: bolder;
