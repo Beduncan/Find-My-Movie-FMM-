@@ -1,3 +1,15 @@
 body{
-	background-image: url("../images/popcorn4.jpg");
+	background-image: url("../images/background.jpg");
+    background-size: cover; 
+    background-size: 100% 100%;
+}
+.container{
+	height: 700px;
+	background-image: url("../images/popcorn2.jpg");
+    background-size: cover; 
+    background-size: 100% 100%;
+}
+.header{
+	background-color: #708090;
+	padding:20px;
 }
