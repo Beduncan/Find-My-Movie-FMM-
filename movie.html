@@ -12,22 +12,37 @@
 </head>
 <body>
 <div class="container">
+<!--add header with app name -->
 	<div class="row">
-		<H1 class="center-align">
+		<h2 class="center-align">
 			Search For Your Favorite Movie
-		</H1>
+		</h3>
 	</div>
-	<div class="row center-align">
-		<div class="col l12">
-			<div class="col l2"></div>
-			<div class="input-field col l6 center-align">
-				<input placeholder="The Goonies" id="movie-input" type="text" class="validate">
-      			<label class="active l3" for="Movie">Your Movie</label>
-			</div>
-			<div class="col l2"></div>
+	<div class="row">
+		<!--this div below is for centering the input-->		
+		<div class="col l3"></div>
+		<div class="input-field col l6">
+			<input placeholder="The Goonies" id="movie-input" type="text" class="validate">
+      		<label class="active" for="Movie">Your Movie</label>
 		</div>
+		<div class="col l3"></div>
+		<!--this div above is for centering the input-->
 	</div>
-	
+	<div class="row">
+		<!--this div below is for centering the input-->		
+		<div class="col l4"></div>
+		<div class="col l4 input-field">
+			<input placeholder="" id="zipcode-input" type="number" class="validate">
+      		<label class="active" for="Number">ZipCode</label>
+		</div>
+		<div class="col l4"></div>
+		<!--this div below is for centering the input-->
+	</div>
+	<div class="row">
+		<div class="col l5"></div>
+		<button  class="btn col l2" id="emailbutton" type="submit">Search!</button>
+		<div class="col l5"></div>
+	</div>
 </div>
 </body>
 </html>
