@@ -1,16 +1,33 @@
-<<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
 	<title>FMM Find My Movies</title>
 	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
-	<link rel="stylesheet" type="text/css" href="">
+	<link rel="stylesheet" type="text/css" href="assets/css/reset.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	<script type="text/javascript" src="assest/javascript/app.js"></script>
 	<script src="https://www.gstatic.com/firebasejs/4.8.0/firebase.js"></script>
 </head>
 <body>
-
+<div class="container">
+	<div class="row">
+		<H1 class="center-align">
+			Search For Your Favorite Movie
+		</H1>
+	</div>
+	<div class="row center-align">
+		<div class="col l12">
+			<div class="col l2"></div>
+			<div class="input-field col l6 center-align">
+				<input placeholder="The Goonies" id="movie-input" type="text" class="validate">
+      			<label class="active l3" for="Movie">Your Movie</label>
+			</div>
+			<div class="col l2"></div>
+		</div>
+	</div>
 	
+</div>
 </body>
 </html>
