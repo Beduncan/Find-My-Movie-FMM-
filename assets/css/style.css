@@ -15,6 +15,7 @@ body{
 }
 .piccontainer{
 	font-family: 'Indie Flower', cursive;
+	font-size: 50px;
 	background-image: url("../images/Spiderman.jpg");
     background-size: cover; 
 	min-height:700px;
@@ -23,6 +24,21 @@ body{
 }
 .fmm{
 	font-weight: bolder;
+	color:#b22222;
+}
+.input-field label{
+	color:#b22222;
+}
+.input-field input[id=email]:focus + label {
+	color:red;
+}
+
+.stylebutton{
+	background-color:#b22222;
+	font-weight: bolder;
+}
+.stylebutton:hover{
+	background-color:grey;
 	color:#b22222;
 }
 
