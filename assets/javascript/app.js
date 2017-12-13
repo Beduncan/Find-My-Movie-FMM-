@@ -1,5 +1,3 @@
-$(document).ready(function(){
-
   	var config = {
     	apiKey: "AIzaSyB6Ff461GnlfJfCqGsLEseAidIfh3jX8No",
     	authDomain: "find-my-movie-cfebd.firebaseapp.com",
@@ -29,5 +27,3 @@ var email = "";
 		console.log(snapshot.val().email);
 	});
 	
-	//close ready 
-	});
