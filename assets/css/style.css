@@ -1,0 +1,46 @@
+*{
+	color: #f8f8ff;
+}
+body{
+	background-image: url("../images/movie2.jpg");
+    background-size: cover; 
+    background-size: 100% 100%;
+}
+.header{
+	font-size: 70px; 
+	padding: 40px 0 40px 0;
+	background-image: url("../images/movies.jpg");
+	background-size: cover; 
+    background-size: 100% 100% ;
+}
+.piccontainer{
+	font-family: 'Indie Flower', cursive;
+	font-size: 50px;
+	background-image: url("../images/Spiderman.jpg");
+    background-size: cover; 
+	min-height:700px;
+	max-height: auto;
+	padding:200px 0 50px 0;
+}
+.fmm{
+	font-weight: bolder;
+	color:#b22222;
+}
+.input-field label{
+	color:#b22222;
+}
+.input-field input[id=email]:focus + label {
+	color:red;
+}
+
+.stylebutton{
+	background-color:#b22222;
+	font-weight: bolder;
+}
+.stylebutton:hover{
+	background-color:grey;
+	color:#b22222;
+}
+
+
+

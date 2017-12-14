@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>FMM Find My Movies</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+	<link rel="stylesheet" type="text/css" href="assets/css/reset.css">
+	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+	<script type="text/javascript" src="assest/javascript/app.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/4.8.0/firebase.js"></script>
+</head>
+<body>
+<div class="container">
+	<div class="row header">
+		<div class="col l1"></div>
+		<div class="col l6">
+		<h1 class="right-align">Find My Movie</h1>
+		</div>
+		<div class="col l3">
+		<h1 class="left-align fmm">(FMM)</h1>
+		</div>
+		<div class="col l2"></div>
+	</div>	
+	<!--container holding background picture -->
+	<div class="piccontainer">	
+	<div class="row center-align">
+		<h3>
+			Search For Your Favorite Movie
+		</h3>
+	</div>
+		<div class="row">
+			<!--this div below is for centering the input-->		
+			<div class="col l3"></div>
+			<div class="input-field col l6">
+				<input placeholder="The Goonies" id="movie-input" type="text" class="">
+	      		<label class="active" for="Movie">Your Movie</label>
+			</div>
+			<div class="col l3"></div>
+			<!--this div above is for centering the input-->
+		</div>
+		<div class="row">
+			<!--this div below is for centering the input-->		
+			<div class="col l4"></div>
+			<div class="col l4 input-field">
+				<input placeholder="ex '45678' " id="zipcode-input" type="number" class="">
+	      		<label class="active" for="Number">ZipCode</label>
+			</div>
+			<div class="col l4"></div>
+			<!--this div below is for centering the input-->
+		</div>
+		<div class="row">
+			<div class="col l5"></div>
+			<div class="col l2">
+			  <button class="stylebutton">Search!</button>
+			</div>
+			<div class="col l5"></div>
+		</div>
+	</div>	
+</div>
+</body>
+</html>
