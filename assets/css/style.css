@@ -11,7 +11,7 @@ body{
 	padding: 40px 0 40px 0;
 	background-image: url("../images/movies.jpg");
 	background-size: cover; 
-    background-size: 100% 100% ;
+    background-size: 100% 100%;
 }
 .piccontainer{
 	font-family: 'Indie Flower', cursive;
@@ -27,25 +27,35 @@ body{
 	color:#b22222;
 }
 .input-field label{
-	color:#b22222;
-}
-.input-field input[id=email]:focus + label {
-	color:red;
-}
+	font-size: 30px;
 
+}
+/* label focus color */
+    .input-field input:focus + label, .materialize-textarea:focus:not([readonly]) + label {
+     color: #b22222 !important;
+     font-size: 40px; !important;
+}
+/* label underline focus color */
+    .input-field input:focus, .materialize-textarea:focus:not([readonly]) {
+     border-bottom: 1px solid #b22222 !important;
+     box-shadow: 0 1px 0 0 #b22222 !important;
+     font-size: 40px !important;
+     margin-top: 20px;
+}
 .stylebutton{
+	font-weight: bold;
+	padding: 20px;
 	background-image: url("../images/clapperbutton.jpg");
 	color:#b22222;
 	font-size: 30px;
 }
 .stylebutton:hover{
+	font-weight: bolder;
 	font-size: 50px;
 	border: 5px solid #b22222;
 }
 .apis{
-	padding: 20px;
 	background-color: black;
-	color:#b22222;
 }
 
 
