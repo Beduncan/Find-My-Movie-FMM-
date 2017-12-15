@@ -34,17 +34,14 @@ body{
 }
 
 .stylebutton{
-	padding:5px;
-	font-size:40px;
-	border: 5px solid grey;
-	background-color:#b22222;
-	font-weight: bolder;
+	background-image: url("../images/clapperbutton.jpg");
+	color:#b22222;
 }
-.stylebutton:hover{
+/*.stylebutton:hover{
 	border: 5px solid #b22222;
 	background-color:grey;
 	color:#b22222;
-}
+}*/
 .apis{
 	padding: 20px;
 	background-color: black;
