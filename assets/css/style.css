@@ -3,8 +3,8 @@
 }
 body{
 	background-image: url("../images/movie2.jpg");
-    background-size: cover; 
-    background-size: 100% 100%;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
 }
 .header{
 	font-size: 70px; 
