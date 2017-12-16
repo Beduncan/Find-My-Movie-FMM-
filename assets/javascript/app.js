@@ -71,68 +71,72 @@
 // }
 
 // code to get yt trailer
-// function tplawesome(e,t){res=e;for(var n=0;n<t.length;n++){res=res.replace(/\{\{(.*?)\}\}/g,function(e,r){return t[n][r]})}return res}
+function tplawesome(e,t){res=e;for(var n=0;n<t.length;n++){res=res.replace(/\{\{(.*?)\}\}/g,function(e,r){return t[n][r]})}return res}
 
-// $(function() {
-//     $("#Trailerbutton").on("click", function(e) {
-//        e.preventDefault();
-//        // prepare the request
-//        var request = gapi.client.youtube.search.list({
-//             part: "snippet",
-//             type: "video",
-//             q: encodeURIComponent($("#movie-input").val()).replace(/%20/g, "+"),
-//             maxResults: 3,
-//             order: "viewCount",
-//             // publishedAfter: "2015-01-01T00:00:00Z"
-//        }); 
-//        // execute the request
-//        request.execute(function(response) {
-//           var results = response.result;
-//           $("#DonnysApi").html("");
-//           $.each(results.items, function(index, item) {
-//             $.get("tpl/item.html", function(data) {
-//                 $("#DonnysApi").append(tplawesome(data, [{"title":item.snippet.title, "videoid":item.id.videoId}]));
-//             });
-//           });
-//           resetVideoHeight();
-//        });
-//     });
+$(function() {
+    $("#Trailerbutton").on("click", function(e) {
+       e.preventDefault();
+       // prepare the request
+       var request = gapi.client.youtube.search.list({
+            part: "snippet",
+            type: "video",
+            q: encodeURIComponent($("#movie-input").val()).replace(/%20/g, "+"),
+            maxResults: 3,
+            order: "viewCount",
+            // publishedAfter: "2015-01-01T00:00:00Z"
+       }); 
+       console.log(request)
+       // execute the request
+       request.execute(function(response) {
+          var results = response.result;
+          $("#DonnysApi").html("");
+          $.each(results.items, function(index, item) {
+            $.get("tpl/item.html", function(data) {
+                $("#DonnysApi").append(tplawesome(data, [{"title":item.snippet.title, "videoid":item.id.videoId}]));
+            });
+          });
+          resetVideoHeight();
+       });
+    });
     
-//     $(window).on("resize", resetVideoHeight);
-// });
+    $(window).on("resize", resetVideoHeight);
+});
 
-// function resetVideoHeight() {
-//     $(".video").css("height", $("#results").width() * 9/16);
+function resetVideoHeight() {
+    $(".video").css("height", $("#results").width() * 9/16);
+}
+
+function init() {
+    gapi.client.setApiKey("AIzaSyAd9O6SgfLYpm59HeZWRtaHDZNCiBpNLtE");
+    gapi.client.load("youtube", "v3", function() {
+        // yt api is ready
+    });
+}
+
+
+
+
+// buildApiRequest('GET',
+//                 '/youtube/v3/search',
+//                 {'maxResults': '10'
+//                 'part': 'snippet',
+//                 'q': '',
+//                 'type': 'video'  
+//                 })
+// function handleAPILoaded(){
+//     $('#Trailerbutton').attr('disabled', false);
 // }
 
-// function init() {
-//     gapi.client.setApiKey("AIzaSyAd9O6SgfLYpm59HeZWRtaHDZNCiBpNLtE");
-//     gapi.client.load("youtube", "v3", function() {
-//         // yt api is ready
+// // Search for specified string
+// function search() {
+//     var q =$('#movie-input').val(;
+//     var request = gapi.client.youtube.search.list({
+//         q: q;
+//         part: 'snippet'
+//     });
+
+//     request.execute(function(response){
+//         var str = JSON.stringify(response.result);
+//         $('#DonnysApi').html('<prev>' + str + '</prev>');
 //     });
 // }
-
-buildApiRequest('GET',
-                '/youtube/v3/search',
-                {'maxResults': '10'
-                'part': 'snippet',
-                'q': 'surfing',
-                'type': 'video'  
-                })
-function handleAPILoaded(){
-    $('#Trailerbutton').attr('disabled', false);
-}
-
-// Search for specified string
-function search() {
-    var q =$('#movie-input').val(;
-    var request = gapi.client.youtube.search.list({
-        q: q;
-        part: 'snippet';
-    });
-
-    request.execute(function(response){
-        var str = JSON.stringify(response.result);
-        $('#DonnysApi').html('<prev>' + str + '</prev>');
-    });
-}
