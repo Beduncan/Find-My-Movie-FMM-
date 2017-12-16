@@ -25,12 +25,14 @@ var email = "";
         console.log(snapshot.val().email);
     });
     
+$("movie-input").on("click", function(event)) {
+    
+ event.preventDefault();
 
-    // construct the url with parameter values
 var apikey = "xwnuct9pwa826d3qjnruj2h2";
 var baseUrl = "http://data.tmsapi.com/v1.1";
 var showtimesUrl = baseUrl + '/movies/showings';
-var zipCode = "78701";
+var zipCode = "85234";
 var d = new Date();
 
 var today = d.getFullYear() + '-' + (d.getMonth()+1) + '-' + d.getDate();
