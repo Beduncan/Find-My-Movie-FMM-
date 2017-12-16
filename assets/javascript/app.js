@@ -25,7 +25,7 @@ var email = "";
         console.log(snapshot.val().email);
     });
     
-$("movie-input").on("click", function(event)) {
+$("#AdamsApi").on("click", function(event)) {
     
  event.preventDefault();
 
