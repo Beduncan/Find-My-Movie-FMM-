@@ -25,10 +25,10 @@ var email = "";
         console.log(snapshot.val().email);
     });
     
-$("#AdamsApi").on("click", function(event)) {
-    
+$("#movie-input").on("click", function(event) {
+   
  event.preventDefault();
-
+ 
 var apikey = "xwnuct9pwa826d3qjnruj2h2";
 var baseUrl = "http://data.tmsapi.com/v1.1";
 var showtimesUrl = baseUrl + '/movies/showings';
@@ -50,11 +50,12 @@ var today = d.getFullYear() + '-' + (d.getMonth()+1) + '-' + d.getDate();
             });
 
          });
+});
 
 // callback to handle the results
 function dataHandler(data) {
   
-    $(document.body).append('<p>Found ' + data.length + ' movies showing within 5 miles of ' + zipCode+':</p>');
+    $("#AdamsApi").append('<p>Found ' + data.length + ' movies showing within 5 miles of ' + zipCode+':</p>');
 
     var movies = data.hits;
 
@@ -69,5 +70,5 @@ function dataHandler(data) {
     $(document.body).append(movieData);
 
   });
-
 }
+
