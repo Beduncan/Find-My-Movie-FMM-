@@ -10,16 +10,14 @@ $(document).ready(function(){
     };
     firebase.initializeApp(config);
 var database = firebase.database();
-//global values
-    var email = "";
-        //on click functions to save email
-        $("#emailbutton").on("click", function() {
-            event.preventDefault();
-            email = $("#email-input").val().trim();
-            console.log(email);
-            database.ref().push({
-                email: email,
-        });
+//on click functions to save email
+    $("#emailbutton").on("click", function() {
+        event.preventDefault();
+        var email = $("#email-input").val().trim();
+        console.log(email);
+        database.ref().push({
+            email: email,
+            });
     });
 //closing ready functions
 });
