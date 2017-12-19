@@ -19,35 +19,35 @@ var database = firebase.database();
             email: email,
             });
     });
-//closing ready functions
-});
-    
-$("#movie-input").on("click", function(event) {
+
+
+$(document).ready(function() {  
+
+    $("#movie-input").on("click", function(event) {
+
    
- event.preventDefault();
+    event.preventDefault();
+    });
  
 var apikey = "xwnuct9pwa826d3qjnruj2h2";
 var baseUrl = "http://data.tmsapi.com/v1.1";
-var showtimesUrl = baseUrl + '/movies/showings';
+var showtimesUrl = baseUrl + '/movies/showings?api_key=' + apikey;
 var zipCode = "85234";
 var d = new Date();
 
 var today = d.getFullYear() + '-' + (d.getMonth()+1) + '-' + d.getDate();
 
-    $(document).ready(function() {
+   
         // send off the query
         $.ajax({
             url: showtimesUrl,
-                data: { startDate: today,
-                        zip: zipCode,
-                        jsonp: "dataHandler",
-                        api_key: apikey
-                    },          
-                dataType: "jsonp",
-            });
+                method: "GET"
+            }).done(dataHandler);
+           
 
-         });
-});
+        
+
+
 
 // callback to handle the results
 function dataHandler(data) {
@@ -62,10 +62,14 @@ function dataHandler(data) {
 
         movieData += movie.title;
 
-        if (movie.ratings) { movieData += ' (' + movie.ratings[0].code + ') </div>' };
+        if (movie.ratings) { 
 
-    $(document.body).append(movieData);
+            movieData += ' (' + movie.ratings[0].code + ') </div>'; 
+        }
 
-  });
+    $(document.body).append(movieData); 
+    });
 }
+  });
+
 
