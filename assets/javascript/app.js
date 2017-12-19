@@ -29,15 +29,14 @@ $(document).ready(function() {
 
 
      var movie = $("#movie-input").val();
-     var zipCode = $("#zipcode-input").val();
-
     console.log(movie);
 
     
  
 var apikey = "xwnuct9pwa826d3qjnruj2h2";
 var baseUrl = "http://data.tmsapi.com/v1.1";
-var showtimesUrl = baseUrl + '/movies/showings?startDate=2017-12-19&zip=' + zipCode +'&api_key=xwnuct9pwa826d3qjnruj2h2';
+var showtimesUrl = baseUrl + '/movies/showings?api_key=' + apikey;
+var zipCode = "85234";
 var d = new Date();
 
 var today = d.getFullYear() + '-' + (d.getMonth()+1) + '-' + d.getDate();
@@ -47,7 +46,7 @@ var today = d.getFullYear() + '-' + (d.getMonth()+1) + '-' + d.getDate();
         $.ajax({
             url: showtimesUrl,
                 method: "GET"
-            }).done(dataHandler);
+            }).done();
            
 });
         
