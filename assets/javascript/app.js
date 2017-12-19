@@ -83,14 +83,14 @@ function dataHandler(data) {
 function tplawesome(e,t){res=e;for(var n=0;n<t.length;n++){res=res.replace(/\{\{(.*?)\}\}/g,function(e,r){return t[n][r]})}return res}
 
 $(function() {
-    $('#Trailerbutton').on("click", function(e) {
+    $('#movie-input').on("submit", function(e) {
        e.preventDefault();
        // prepare the request
        var request = gapi.client.youtube.search.list({
             part: "snippet",
             type: "video",
             q: encodeURIComponent($("#movie-input").val()).replace(/%20/g, "+"),
-            maxResults: 3,
+            maxResults: 1,
             order: "viewCount",
             publishedAfter: "2015-01-01T00:00:00Z"
        }); 
@@ -99,23 +99,23 @@ $(function() {
           var results = response.result;
           $("#DonnysApi").html("");
           $.each(results.items, function(index, item) {
-            $.get("movie.html", function(data) {
+            $.get(".video w100", function(data) {
                 $("#DonnysApi").append(tplawesome(data, [{"title":item.snippet.title, "videoid":item.id.videoId}]));
             });
           });
-          resetVideoHeight();
+          // resetVideoHeight();
        });
     });
     
-    $(window).on("resize", resetVideoHeight);
+    // $(window).on("resize", resetVideoHeight);
 });
 
-function resetVideoHeight() {
-    $(".video").css("height", $("#DonnysApi").width() * 9/16);
-}
+// function resetVideoHeight() {
+//     $(".video").css("height", $("#DonnysApi").width() * 9/16);
+// }
 
 function init() {
-    gapi.client.setApiKey("AIzaSyCasvqhF4Adlvc5LlOY9S31JzUKZppoggo");
+    gapi.client.setApiKey("AIzaSyCHpWLyIoJ2j6Z26eeFo27bENAZq8rj6TA");
     gapi.client.load("youtube", "v3", function() {
         // yt api is ready
     });
