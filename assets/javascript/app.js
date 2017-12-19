@@ -23,11 +23,15 @@ var database = firebase.database();
 
 $(document).ready(function() {  
 
-    $("#movie-input").on("click", function(event) {
+    $("#Detailbutton").on("click", function(event) {
 
-   
-    event.preventDefault();
-    });
+        event.preventDefault();
+
+
+     var movie = $("#movie-input").val();
+    console.log(movie);
+
+    
  
 var apikey = "xwnuct9pwa826d3qjnruj2h2";
 var baseUrl = "http://data.tmsapi.com/v1.1";
@@ -44,7 +48,7 @@ var today = d.getFullYear() + '-' + (d.getMonth()+1) + '-' + d.getDate();
                 method: "GET"
             }).done(dataHandler);
            
-
+});
         
 
 
@@ -71,5 +75,5 @@ function dataHandler(data) {
     });
 }
   });
-
+});
 
