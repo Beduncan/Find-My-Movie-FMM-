@@ -48,15 +48,10 @@ var today = d.getFullYear() + '-' + (d.getMonth()+1) + '-' + d.getDate();
                 method: "GET"
             }).done();
            
-});
         
-
-
-
-// callback to handle the results
-function dataHandler(data) {
   
-    $("#AdamsApi").append('<p>Found ' + data.length + ' movies showing within 5 miles of ' + zipCode+':</p>');
+    $("#AdamsApi").append('<p>Found ' + baseUrl + ' movies showing within 5 miles of ' + zipCode+':</p>');
+
 
     var movies = data.hits;
 
@@ -73,7 +68,7 @@ function dataHandler(data) {
 
     $(document.body).append(movieData); 
     });
-}
+});
   });
 });
 
