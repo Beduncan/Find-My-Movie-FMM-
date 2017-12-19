@@ -9,17 +9,19 @@ $(document).ready(function(){
         messagingSenderId: "447183757316"
     };
     firebase.initializeApp(config);
-var database = firebase.database();
+    var database = firebase.database();
 //on click functions to save email
-    $("#emailbutton").on("click", function() {
-        event.preventDefault();
-        var email = $("#email-input").val().trim();
-        console.log(email);
-        database.ref().push({
-            email: email,
-            });
+$("#emailbutton").on("click", function() {
+    event.preventDefault();
+    var email = $("#email-input").val().trim();
+    console.log(email);
+    database.ref().push({
+        email: email,
     });
-
+// closeing on click
+});
+// closeing ready
+});
 
 $(document).ready(function() {  
 
@@ -28,40 +30,45 @@ $(document).ready(function() {
         event.preventDefault();
 
 
-     var movie = $("#movie-input").val();
-     var zipCode = $("#zipcode-input").val();
+        var movie = $("#movie-input").val();
+        var zipCode = $("#zipcode-input").val();
 
-    console.log(movie);
+        console.log(movie);
 
-    
- 
-var apikey = "xwnuct9pwa826d3qjnruj2h2";
-var baseUrl = "http://data.tmsapi.com/v1.1";
-var showtimesUrl = baseUrl + '/movies/showings?startDate=2017-12-19&zip=' + zipCode +'&api_key=xwnuct9pwa826d3qjnruj2h2';
-var d = new Date();
 
-var today = d.getFullYear() + '-' + (d.getMonth()+1) + '-' + d.getDate();
 
-   
+        var apikey = "xwnuct9pwa826d3qjnruj2h2";
+        var baseUrl = "http://data.tmsapi.com/v1.1";
+        var showtimesUrl = baseUrl + '/movies/showings?startDate=2017-12-19&zip=' + zipCode +'&api_key=xwnuct9pwa826d3qjnruj2h2';
+        var d = new Date();
+
+        var today = d.getFullYear() + '-' + (d.getMonth()+1) + '-' + d.getDate();
+
+
         // send off the query
         $.ajax({
             url: showtimesUrl,
-                method: "GET"
-            }).done();
-           
-        
+            method: "GET"
+        }).done(function(response){
+            console.log(response);
 
+            for (var i = 0; i < response.length; i++) {
+                console.log(i);
+                
+                }
+            });
+// closes on click
+        });
+//closes ready 
+});
 
-    });
-});
-});
 
 
 // youtube api will hide when loaded
 $(document).ready(function(){
   $('#movie').hide();
   
- 
+
   $('#Trailerbutton').on("click", function() {
     var trail = $('#movie-input').val();
     var replaced = trail.replace(' ', '+');
@@ -70,6 +77,6 @@ $(document).ready(function(){
     $('#movie').attr("src", query);
 
     console.log(query);
-  });
+});
 
 });
