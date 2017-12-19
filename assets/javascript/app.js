@@ -87,14 +87,17 @@ var today = d.getFullYear() + '-' + (d.getMonth()+1) + '-' + d.getDate();
 
 // youtube api
 $(document).ready(function(){
-
+  $('#movie').hide();
+  
  
-$('#Trailerbutton').on("click", function() {
-  var trail = $('#movie-input').val();
-  var replaced = trail.replace(' ', '+');
-  var query = "https://www.youtube.com/embed?listType=search&list=" + trail + "trailer"
+  $('#Trailerbutton').on("click", function() {
+    var trail = $('#movie-input').val();
+    var replaced = trail.replace(' ', '+');
+    var query = "https://www.youtube.com/embed?listType=search&list=" + trail + "trailer"
+    $('#movie').show();
+    $('#movie').attr("src", query);
 
-  $("#movie").attr("src", query);
+    console.log(query);
+  });
 
-console.log(query);
-
+});
