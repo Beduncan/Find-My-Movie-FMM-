@@ -50,6 +50,7 @@ var today = d.getFullYear() + '-' + (d.getMonth()+1) + '-' + d.getDate();
             }).done();
            
         
+
   
     $("#AdamsApi").append('<p>Found ' + baseUrl + ' movies showing within 5 miles of ' + zipCode+':</p>');
 
@@ -62,7 +63,14 @@ var today = d.getFullYear() + '-' + (d.getMonth()+1) + '-' + d.getDate();
 
         movieData += movie.title;
 
-        if (movie.ratings) { 
+        if (movie.ratings) { movieData += ' (' + movie.ratings[0].code + ') </div>' };
+
+    $(document.body).append(movieData);
+
+  });
+}
+ 
+    if (movie.ratings) { 
 
             movieData += ' (' + movie.ratings[0].code + ') </div>'; 
         }
@@ -71,5 +79,21 @@ var today = d.getFullYear() + '-' + (d.getMonth()+1) + '-' + d.getDate();
     });
 });
   });
-});
 
+
+// youtube api
+$(document).ready(function(){
+  $('#movie').hide();
+  
+ 
+  $('#Trailerbutton').on("click", function() {
+    var trail = $('#movie-input').val();
+    var replaced = trail.replace(' ', '+');
+    var query = "https://www.youtube.com/embed?listType=search&list=" + trail + "trailer"
+    $('#movie').show();
+    $('#movie').attr("src", query);
+
+    console.log(query);
+  });
+
+});
