@@ -50,34 +50,9 @@ var today = d.getFullYear() + '-' + (d.getMonth()+1) + '-' + d.getDate();
            
         
 
-  
-    $("#AdamsApi").append('<p>Found ' + baseUrl + ' movies showing within 5 miles of ' + zipCode+':</p>');
-
-
-    var movies = data.hits;
-
-    $.each(data, function(index, movie) {
-
-        var movieData = '<div class="tile"><img src="http://developer.tmsimg.com/' + movie.preferredImage.uri + '?api_key='+apikey+'"><br/>';
-
-        movieData += movie.title;
-
-        if (movie.ratings) { movieData += ' (' + movie.ratings[0].code + ') </div>' };
-
-    $(document.body).append(movieData);
-
-  });
-}
- 
-    if (movie.ratings) { 
-
-            movieData += ' (' + movie.ratings[0].code + ') </div>'; 
-        }
-
-    $(document.body).append(movieData); 
     });
 });
-  });
+});
 
 
 // youtube api
