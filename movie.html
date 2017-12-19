@@ -10,7 +10,9 @@
 	<script src="https://www.youtube.com/iframe_api"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	<script src="https://www.gstatic.com/firebasejs/4.8.0/firebase.js"></script>
-	
+	<script src="https://apis.google.com/js/client.js?onload=googleApiClientReady"></script> -->
+<!-- <script src="https://apis.google.com/js/client.js?onload=googleApiClientReady"></script> -->
+<script type="text/javascript" src="assets/javascript/app.js"></script>
 	
 
 </head>
@@ -28,10 +30,12 @@
 	</div>	
 	<!--container holding background picture -->
 	<div class="piccontainer">	
-	<div class="row center-align">
-		<h3>
-			Search For Your Favorite Movie
+	<div class="row">
+		<div class="col l3"></div>
+		<h3 class="col l6">
+			Search For Your Favorite Movie in Theaters 
 		</h3>
+		<div class="col l3"></div>
 	</div>
 		<div class="row">
 			<!--this div below is for centering the input-->		
@@ -70,14 +74,15 @@
 		<div id="AdamsApi" class="apis col l12"></div>
 	</div>
 	<div class="row">
-		<div id="player"></div>
-    
+		<div class="col l2"></div>
+		<div class="col l8">
+		<iframe id="movie" width="700" height="450" src="https://www.youtube.com/embed/40cT6I21JV4" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>   
+		</div>
+		<div class="col l2"></div>
 	</div>
 
+
+
 </div>
-
-<iframe id="movie" width="560" height="315" src="https://www.youtube.com/embed/40cT6I21JV4" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
-<script type="text/javascript" src="assets/javascript/app.js"></script>
-
 </body>
 </html>
