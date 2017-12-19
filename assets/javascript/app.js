@@ -28,6 +28,7 @@ $(document).ready(function() {
         event.preventDefault();
 
 
+
         var movie = $("#movie-input").val();
         var zipCode = $("#zipcode-input").val();
 
@@ -41,6 +42,7 @@ $(document).ready(function() {
         var d = new Date();
 
         var today = d.getFullYear() + '-' + (d.getMonth()+1) + '-' + d.getDate();
+
 
 
         // send off the query
