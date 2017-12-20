@@ -10,7 +10,12 @@
 	<script src="https://www.youtube.com/iframe_api"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	<script src="https://www.gstatic.com/firebasejs/4.8.0/firebase.js"></script>
+<<<<<<< HEAD
 	<script type="text/javascript" src="assets/javascript/app.js"></script>
+=======
+	<!-- <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+	<script src="https://apis.google.com/js/client.js?onload=googleApiClientReady"></script> -->
+>>>>>>> e219a3deef7bce3d075984fbea03612eeda09dce
 	
 
 </head>
@@ -28,18 +33,18 @@
 	</div>	
 	<!--container holding background picture -->
 	<div class="piccontainer">	
-	<div class="row">
-		<div class="col l3"></div>
-		<h3 class="col l6">
-			Search For Your Favorite Movie in Theaters Now! 
+	<div class="row center-align">
+		<h3>
+			Search For Your Favorite Movie
 		</h3>
-		<div class="col l3"></div>
 	</div>
 		<div class="row">
 			<!--this div below is for centering the input-->		
 			<div class="col l3"></div>
 			<div class="input-field col l6">
-				<input placeholder="Starwars The last Jedi" id="movie-input" type="text" class="input">
+
+				<input placeholder="Star Wars The last Jedi" id="movie-input" type="text" class="input">
+
 	      		<label id="label" class="active" for="Movie">Your Movie</label>
 			</div>
 			<div class="col l3"></div>
@@ -47,12 +52,13 @@
 		</div>
 		<div class="row">
 			<!--this div below is for centering the input-->		
-			<div class="col l4"></div>
+			<!--<div class="col l4"></div>
 			<div class="input-field col l4">
 				<input placeholder="ex '45678' " id="zipcode-input" type="number" class="input">
 	      		<label class="active" for="Number">ZipCode</label>
 			</div>
-			<div class="col l4"></div>
+			<div class="col l4"></div>  -->
+
 			<!--this div below is for centering the input-->
 		</div>
 		<div class="row">
@@ -72,15 +78,14 @@
 		<div id="AdamsApi" class="apis col l12"></div>
 	</div>
 	<div class="row">
-		<div class="col l2"></div>
-		<div class="col l8">
-		<iframe id="movie" width="700" height="450" src="https://www.youtube.com/embed/40cT6I21JV4" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>   
-		</div>
-		<div class="col l2"></div>
+		<div id="player"></div>
+    
 	</div>
 
-
-
 </div>
+<!-- <script src="https://apis.google.com/js/client.js?onload=googleApiClientReady"></script> -->
+<iframe id="movie" width="560" height="315" src="https://www.youtube.com/embed/40cT6I21JV4" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
+<script type="text/javascript" src="assets/javascript/app.js"></script>
+
 </body>
 </html>
