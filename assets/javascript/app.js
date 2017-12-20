@@ -23,12 +23,52 @@ $("#emailbutton").on("click", function() {
 // closeing ready
 });
 
+
+$(document).ready(function() {  
+
+    $("#Detailbutton").on("click", function(event) {
+
+        event.preventDefault();
+
+
+        var movie = $("#movie-input").val();
+        var zipCode = $("#zipcode-input").val();
+
+        console.log(movie);
+
+
+
+        var apikey = "xwnuct9pwa826d3qjnruj2h2";
+        var baseUrl = "http://data.tmsapi.com/v1.1";
+        var showtimesUrl = baseUrl + '/movies/showings?startDate=2017-12-19&zip=' + zipCode +'&api_key=xwnuct9pwa826d3qjnruj2h2';
+        var d = new Date();
+
+        var today = d.getFullYear() + '-' + (d.getMonth()+1) + '-' + d.getDate();
+
+
+        // send off the query
+        $.ajax({
+            url: showtimesUrl,
+            method: "GET"
+        }).done(function(response){
+            console.log(response);
+
+            for (var i = 0; i < response.data; i++) {
+                console.log(i);
+                $("#AdamsApi").append("hello");
+                }
+            });
+// closes on click
+        });
+//closes ready 
+
 $(document).ready(() => {
     $('#searchForm').on('Detailbutton', (e) => {
         let searchText = $('#searchText').val();
         getMovies(searchText);
         e.preventDefault();
     });
+
 });
 
 function getMovies(searchText) {
