@@ -52,9 +52,9 @@ $(document).ready(function() {
         }).done(function(response){
             console.log(response);
 
-            for (var i = 0; i < response.length; i++) {
+            for (var i = 0; i < response.data; i++) {
                 console.log(i);
-                
+                $("#AdamsApi").append("hello");
                 }
             });
 // closes on click
