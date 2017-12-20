@@ -14,9 +14,12 @@ $(document).ready(function(){
 $("#emailbutton").on("click", function() {
     event.preventDefault();
     var email = $("#email-input").val().trim();
+    var zipCode = $("#zipcode-input").val().trim();
     console.log(email);
+    console.log(zipCode)
     database.ref().push({
         email: email,
+        zipCode: zipCode,
     });
 // closeing on click
 });
@@ -31,121 +34,69 @@ $(document).ready(function() {
         event.preventDefault();
 
 
-        var movie = $("#movie-input").val();
-        var zipCode = $("#zipcode-input").val();
-
         console.log(movie);
 
+    
+        var movie = $("#movie-input").val();
+        var queryURL = "https://www.omdbapi.com/?t=" + movie + "&y=&plot=short&apikey=trilogy";
 
-
-        var apikey = "xwnuct9pwa826d3qjnruj2h2";
-        var baseUrl = "http://data.tmsapi.com/v1.1";
-        var showtimesUrl = baseUrl + '/movies/showings?startDate=2017-12-19&zip=' + zipCode +'&api_key=xwnuct9pwa826d3qjnruj2h2';
-        var d = new Date();
-
-        var today = d.getFullYear() + '-' + (d.getMonth()+1) + '-' + d.getDate();
-
-
-        // send off the query
-        $.ajax({
-            url: showtimesUrl,
+        // Creating an AJAX call for the specific movie button being clicked
+            $.ajax({
+            url: queryURL,
             method: "GET"
-        }).done(function(response){
-            console.log(response);
+            }).done(function(response) {
+                console.log(response);
 
-            for (var i = 0; i < response.data; i++) {
-                console.log(i);
-                $("#AdamsApi").append("hello");
-                }
-            });
-// closes on click
-        });
-//closes ready 
+                // puting in div 
+                var holder = $("<div class='movie'>");
+                //GETing title
+                var title = response.Title;
+                var tdisplay = $("<p>").text("Title: " + title); 
+                holder.append(title);
+                
+                //getting rating
+                var rating = response.Rated
+                console.log(rating);
+                //displaying rating
+                var rdisplay = $("<p>").text("Rating: " + rating);
+                holder.append(rdisplay);
 
-$(document).ready(() => {
-    $('#searchForm').on('Detailbutton', (e) => {
-        let searchText = $('#searchText').val();
-        getMovies(searchText);
-        e.preventDefault();
-    });
+                //geting year
+                var released = response.Released;
+                //Realase display
+                var Realasedisplay = $("<p>").text("Released Date: " + released);
+                holder.append(Realasedisplay);
 
+                //getting plot
+                var plot = response.Plot;
+                //displaying plot
+                var plotdisplay = $("<p>").text("Plot: " + plot);
+                holder.append(plotdisplay);
+
+                //get runtime
+                var runtime = response.Runtime;
+                var rundisplay = $("<p>").text("Runtime: " + runtime); 
+                holder.append(rundisplay);
+               
+                //getting writers 
+                var writers = response.Writer;
+                var writerdis = $("<p>").text("Writers: " + writers);
+                holder.append(writerdis); 
+                //getting director
+                var director = response.Director
+                var dirdis = $("<p>").text("Director: " + director);
+                holder.append(dirdis);
+                //getting img
+                var imgUrl = response.Poster;
+                var imgdisplay = $("<img>").attr("src", imgUrl);
+                holder.append(imgdisplay);
+
+                $("#AdamsApi").prepend(holder);
+                });
+//closing on click      
 });
-
-function getMovies(searchText) {
-    axios.get('https://www.omdbapi.com?s='+searchText)
-    .then((response) => {
-        console.log(response);
-        let movies = response.data.Search;
-        let output = '';
-        $.each(movies, (index, movie) => {
-            output += `
-                <div class="col-md-3">
-                    <div class="well text-center">
-                        <img src="${movie.Poster}">
-                        <h5>${movie.Title}</h5>
-                        <a onclick="movieSelected('${movie.imdbID}')" class="btn btn-primary" href="#">Movie Details</a>
-                    </div>
-                </div>
-            `;
-        });
-
-        $('#movies').html(output);
-    })
-    .catch((err) => {
-        console.log(err);
-    });
-}
-
-function movieSelected(id) {
-    sessionStorage.setItem('movie-input', id);
-    window.location = 'movie.html';
-    return false;
-}
-
-function getMovie(){
-    let movieId = sessionStorage.getItem('movieId');
-
-    axios.get('https://www.omdbapi.com?i='+movieId)
-    .then((response) => {
-        console.log(response);
-        let movie = response.data;
-
-        let output = `
-            <div class = "row">
-                <div class = "col-md-4">
-                    <img src="${movie.Poster}" class="tumbnail">
-                </div>
-                <div class = "col-md-8">
-                    <h2>${movie.Title}</h2>
-                    <ul class="list-group">
-                        <li class="list-group-item"><strong>Genre:</strong> ${movie.Genre}</li>
-                        <li class="list-group-item"><strong>Released:</strong> ${movie.Released}</li>
-                        <li class="list-group-item"><strong>Rated:</strong> ${movie.Rated}</li>
-                        <li class="list-group-item"><strong>IMDB Rating:</strong> ${movie.imdbRating}</li>
-                        <li class="list-group-item"><strong>Director:</strong> ${movie.Director}</li>
-                        <li class="list-group-item"><strong>Writer:</strong> ${movie.Writer}</li>
-                        <li class="list-group-item"><strong>Actors:</strong> ${movie.Actors}</li>
-                    </ul>   
-                </div>
-            </div>
-            <div class="row">
-                <div class="well">
-                    <h3>Plot</h3>
-                    ${movie.Plot}
-                    <hr />
-                    <a href="https://imdb.com/title/${movie.imdbID}" target="_blank" class="btn btn-primary">View IMDB</a>
-                    <a href="index.html" class="btn btn-default">Go back</a>
-                </div>
-            </div>
-        `;
-
-        $('#AdamsApi').html(output);
-    })
-    .catch((err) => {
-        console.log(err);
-    });
-}
-
+//closeing ready
+});
 // youtube api will hide when loaded
 $(document).ready(function(){
   $('#movie').hide();
